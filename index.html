@@ -9,8 +9,38 @@
     <!-- leaflet stylesheet -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
     <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.4/dist/esri-leaflet-geocoder.css">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css">
+
     <style>
       #mapContainer { height: 90vh; width: 100%; }
+
+      .blurredPolygon {
+        filter: url(#blur);
+      }
+
+      .marker-cluster-site {
+        background-color: rgba(181, 226, 140, 0.6);
+      }
+      .marker-cluster-site div {
+        background-color: rgba(110, 204, 57, 0.6);
+      }
+      .marker-cluster-site div span i {
+        font-size: 0.6rem;
+      }
+
+      .marker-cluster-access {
+        background-color: rgba(241, 211, 87, 0.6);
+      }
+      .marker-cluster-access div {
+        background-color: rgba(240, 194, 12, 0.6);
+      }
+      .marker-cluster-access div span i {
+        font-size: 0.6rem;
+      }
     </style>
 
   </head>
@@ -23,6 +53,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
     <!-- leaflet js script to build the slippy map -->
     <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+
+
+    <!-- markercluster for icon clustering -->
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+
     <!-- Load Esri Leaflet from CDN -->
     <script src="https://unpkg.com/esri-leaflet@2.0.8"></script>
     <!-- Esri Leaflet Geocoder -->
