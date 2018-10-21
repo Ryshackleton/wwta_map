@@ -39,7 +39,7 @@ function LeafletBasemap ( options ) {
         // background tile layer from: https://leaflet-extras.github.io/leaflet-providers/preview/
         var Esri_OceanBasemap =  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{z}/{y}/{x}', {
             attribution: 'Tiles &copy; Esri',
-            maxZoom: 15
+            maxZoom: 13
         }).addTo(self.leafletmap);
 
         self.layerControl.addBaseLayer(Esri_OceanBasemap,"ESRI Oceans");
