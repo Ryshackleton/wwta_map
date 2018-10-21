@@ -137,7 +137,7 @@ function LeafletBasemap ( options ) {
             .setView(self.options.mapCenter,self.options.mapZoomLevel);
 
         // create an empty layer control that we'll add components to
-        self.layerControl = L.control.layers({},{}).addTo(self.leafletmap);
+        self.layerControl = L.control.layers({}, {}, self.options.layersControlOptions || {}).addTo(self.leafletmap);
 
         // create geocode control
         addGeocodeControl();
