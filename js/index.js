@@ -7,23 +7,18 @@ var colorByTyp = {
 
 // lookup of type (site, access) -> icon to represent the type
 var iconsByTypProp = {
-  site: new L.Icon({
+  site: new L.divIcon({
     iconSize: [23, 23],
-    iconAnchor: [13, 23],
     popupAnchor: [1, -24],
-    iconUrl: 'resources/campground-solid.svg'
+    html: '<i class="fas fa-campground"></i>',
+    className: 'marker-single marker-site'
   }),
-  access: new L.Icon({
+  access: new L.divIcon({
     iconSize: [23, 23],
-    iconAnchor: [13, 23],
     popupAnchor: [1, -24],
-    iconUrl: 'resources/ship-solid.svg',
+    html: '<i class="fas fa-ship"></i>',
+    className: 'marker-single marker-access'
   }),
-};
-
-var faIconHtmlByTypProp = {
-  site: '<i class="fas fa-campground"></i>',
-  access: '<i class="fas fa-ship"></i>',
 };
 
 var typLabel = {
@@ -76,7 +71,7 @@ function iconClusterOptions(clusterTyp) {
       var childCount = markers.length;
       var typ = cluster.getAllChildMarkers()[0].feature.properties.typ;
       var clusterClass = 'leaflet-marker-icon marker-cluster leaflet-zoom-animated leaflet-interactive'
-      var icon = faIconHtmlByTypProp[typ];
+      var icon = iconsByTypProp[typ].options.html;
       return L.divIcon({
         html: '<div><span>' + childCount + ' ' + icon + '</span></div>',
         className: clusterClass + ' marker-cluster-' + typ,
@@ -177,7 +172,7 @@ window.onload = function() {
         bounds.extend(layerBounds);
 
         // add this layer to the layer control (checkboxes to toggle layers)
-        basemap.layerControl().addOverlay(cluster, typLabel[layerKey] + ' ' + faIconHtmlByTypProp[layerKey]);
+        basemap.layerControl().addOverlay(cluster, typLabel[layerKey] + ' ' + iconsByTypProp[layerKey].options.html);
       });
 
       // zoom to the bounds of all layers
