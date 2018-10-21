@@ -125,8 +125,7 @@ function LeafletBasemap ( options ) {
 
     // PRIVATE
     // init builds the map
-    function init()
-    {
+    function init() {
         // ensure valid defaults and set up some variables for reuse
         self.options.mapCenter = self.options.mapCenter === undefined ? [0,20] : self.options.mapCenter;
         self.options.mapZoomLevel = self.options.mapZoomLevel === undefined ? 1.5 : self.options.mapZoomLevel;
@@ -159,8 +158,7 @@ function LeafletBasemap ( options ) {
     }
 
     // uses esri leaflet to add a geocoding search box
-    function addGeocodeControl()
-    {
+    function addGeocodeControl() {
         // create the geocoding control and add it to the map
         var searchControl = L.esri.Geocoding.geosearch().addTo(self.leafletmap);
 
