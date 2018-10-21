@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>WWTA Slippy Map</title>
+
+    <!-- leaflet stylesheet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.4/dist/esri-leaflet-geocoder.css">
+    <style>
+      #mapContainer { height: 100vh; width: 100%; }
+    </style>
+
+  </head>
+
+  <body>
+
+    <div id="mapContainer"></div>
+
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <!-- leaflet js script to build the slippy map -->
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+    <!-- Load Esri Leaflet from CDN -->
+    <script src="https://unpkg.com/esri-leaflet@2.0.8"></script>
+    <!-- Esri Leaflet Geocoder -->
+    <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.4"></script>
+    <!-- Custom leaflet basemap with optional loading of basemaps -->
+    <script type="text/javascript" src="js/LeafletBasemap.js"></script>
+    <!-- Utility to convert xml to json -->
+    <script type="text/javascript" src="js/xmlToJson.js"></script>
+    <!-- Main -->
+    <script type="text/javascript" src="js/index.js"></script>
+  </body>
+</html>
