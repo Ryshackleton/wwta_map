@@ -40,12 +40,14 @@ var iconsByTypProp = {
 
 // maps what to do for each feature in the Leaflet layer
 var layerGeoJsonOptions = {
-  //
+  // which icons go with each layer
   pointToLayer: function(feature, latlng) {
     return L.marker(latlng, {
       icon: iconsByTypProp[feature.properties.typ]
     });
   },
+  // for each feature, bind a popup to the marker in the map that
+  // contains the tooltipContent defined above
   onEachFeature: function (feature, layer) {
     layer.bindPopup(feature.properties.tooltipContent);
   }
