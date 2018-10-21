@@ -54,16 +54,18 @@ var layerGeoJsonOptions = {
 window.onload = function() {
   var basemap = new LeafletBasemap({ mapDivId: 'mapContainer' })
     .addESRIWorldImageryBaseMapLayer()
-    .addESRIOceanBaseMapLayer()
-    // this may not work locally because of cross origin read blocking (CORB) issues
-    .addCustomOverlay(
-      'https://seamlessrnc.nauticalcharts.noaa.gov/arcgis/rest/services/RNC/NOAA_RNC/ImageServer',
-      'Navigation Charts',
-      {
-        opacity: 0.35,
-        transparent: true,
-        zindex: 2
-      });
+    .addESRIOceanBaseMapLayer();
+
+  // navigational charts, will be transparent and always as an optional overlay
+  var navCharts = L.esri.imageMapLayer({
+    url: 'https://seamlessrnc.nauticalcharts.noaa.gov/arcgis/rest/services/RNC/NOAA_RNC/ImageServer',
+    opacity: 0.35,
+    transparent: true,
+    zindex: 2
+  });
+
+  // add this layer to the layer control (checkboxes to toggle layers)
+  basemap.layerControl().addOverlay(navCharts, "Navigational Charts");
 
   // fetch the markers
   $.ajax({
